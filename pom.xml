@@ -14,5 +14,21 @@
         <module>oa_web</module>
     </modules>
 
+    <properties>
+        <spring.version>5.2.8.RELEASE</spring.version>
+    </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.2.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
