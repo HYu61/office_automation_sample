@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.hyu.oa.dao.EmployeeDao">
+
+    <resultMap id="empResultMap" type="pers.hyu.oa.entity.Employee">
+        <id column="sn" property="sn" javaType="String"/>
+        <result property="deptId" column="dept_id"/>
+        <association property="dept" select="pers.hyu.oa.dao.DepartmentDao.selectById" column="dept_id"/>
+    </resultMap>
+
+
+    <insert id="insert" parameterType="Employee">
+        insert into employees
+        VALUES (#{sn}, hex(aes_encrypt(#{password}, 'oa')), #{name}, #{caSin}, #{deptId}, #{position})
+    </insert>
+
+    <delete id="deleteBySn" parameterType="String">
+        delete
+        from employees
+        where sn = #{value}
+    </delete>
+
+    <delete id="deleteMulti" parameterType="java.util.List">
+        delete from employees where sn in
+        <foreach collection="list" item="empSn" open="(" close=")" separator=",">
+            #{empSn}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="Employee">
+        update employees
+        set password = HEX(AES_ENCRYPT(#{password}, 'oa')),
+            name     = #{name},
+            ca_sin   = #{caSin},
+            dept_id  = #{deptId},
+            position = #{position}
+        where sn = #{sn}
+    </update>
+
+    <select id="selectBySn" parameterType="String" resultMap="empResultMap">
+        select * from employees where sn = #{value}
+    </select>
+
+    <select id="selectByDept" parameterType="Integer" resultMap="empResultMap">
+        select * from employees where dept_id = #{value}
+    </select>
+    <select id="selectAll" resultMap="empResultMap">
+        select * from employees order by dept_id
+    </select>
+
+</mapper>

@@ -1,6 +1,7 @@
 package pers.hyu.oa.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Util {
@@ -13,13 +14,17 @@ public class Util {
     public static List<Integer> stringToIntArrayList(String str){
         List<Integer> list = new ArrayList<Integer>();
         String[] result = str.split(",");
-        for(int i = 0; i<result.length;i++){
+        for (String s : result) {
             try {
-                list.add(Integer.parseInt(result[i].trim()));
+                list.add(Integer.parseInt(s.trim()));
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
         }
         return list;
+    }
+
+    public static List<String> stringToList(String str){
+        return Arrays.asList(str.split(","));
     }
 }

@@ -22,7 +22,7 @@
                                 </button>
                                 <button type="button" class="btn btn-default light">
                                     <i class="fa fa-trash"
-                                       onclick="sendDeptIdList()"></i>
+                                       onclick="javascript:window.location.href='/dept/removeMulti?ids='+ getSelect();"></i>
                                 </button>
                                 <button type="button" class="btn btn-default light">
                                     <i class="fa fa-plus"

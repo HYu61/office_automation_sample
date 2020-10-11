@@ -45,7 +45,7 @@
 <script type="text/javascript" src="/js/pages.js"></script>
 <script type="text/javascript" src="/js/items.js"></script>
 <script language="JavaScript">
-    function sendDeptIdList() {
+    function getSelect() {
         var id = document.getElementsByName('multi');
         var idList = new Array();
         for(let i = 0; i < id.length; i++){
@@ -53,10 +53,12 @@
                 idList.push(id[i].value);
         }
         if(idList.length>0){
-            window.location ='/dept/removeMulti?ids='+idList.toString();
+            return idList.toString();
+
         }
 
     }
+
 </script>
 </body>
 </html>

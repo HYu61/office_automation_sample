@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pers.hyu.oa.entity.Department;
+import pers.hyu.oa.global.infoenum.DisplayNumEnum;
 import pers.hyu.oa.service.DepartmentService;
 import pers.hyu.oa.util.Util;
 
@@ -26,7 +27,7 @@ public class DepartmentController {
      */
     @GetMapping("/displayAll")
     public String display(@RequestParam(value = "pageNum", defaultValue = "1") Integer pn, ModelMap modelMap) {
-        PageHelper.startPage(pn, 5);
+        PageHelper.startPage(pn, DisplayNumEnum.DEPT_PAGE.getDisplayNum());
         List<Department> deptList = departmentService.getAll();
         PageInfo<Department> pageInfo = new PageInfo<Department>(deptList);
         modelMap.addAttribute("pageInfo", pageInfo);
@@ -49,7 +50,7 @@ public class DepartmentController {
         if (exceptionMsg != null) {
             String errMsg = String.format("ID -- %s or Name -- %s exists already, please check it", dept.getId(), dept.getName());
            modelMap.addAttribute("errMsg", errMsg);
-            return "redirect:toAdd?";
+            return "redirect:toAdd";
         }
         return "redirect:displayAll";
     }

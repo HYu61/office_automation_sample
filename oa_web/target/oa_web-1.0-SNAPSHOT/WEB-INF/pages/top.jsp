@@ -19,7 +19,7 @@
     <header class="navbar navbar-fixed-top navbar-shadow">
         <div class="navbar-branding">
             <a class="navbar-brand" href="dashboard.html">
-                <b>HY</b>OA
+                <b>HY</b>OA Sample
             </a>
             <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
         </div>
@@ -107,12 +107,12 @@
                     <ul class="nav sub-nav">
                         <li>
 <%--                            --%>
-                            <a href="/employee/list">
+                            <a href="/emp/displayAll">
                                 <span class="glyphicon glyphicon-calendar"></span> Employee List </a>
                         </li>
                         <li class="active">
 <%--                            --%>
-                            <a href="/employee/to_add">
+                            <a href="/emp/toAdd">
                                 <span class="glyphicon glyphicon-check"></span> Add the Employee </a>
                         </li>
                     </ul>
