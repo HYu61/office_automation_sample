@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="position" class="field select">
-                            <form:select path="position" items="${positionList}" itemLabel="position" cssClass="gui-input" placeholder="Position..."/>
+                            <form:select path="position" items="${positionList}" itemLabel="position" itemValue="position" cssClass="gui-input" placeholder="Position..."/>
                             <i class="arrow double"></i>
                         </label>
                     </div>

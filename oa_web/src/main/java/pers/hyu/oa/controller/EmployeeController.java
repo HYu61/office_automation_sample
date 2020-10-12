@@ -16,6 +16,7 @@ import pers.hyu.oa.service.EmployeeService;
 import pers.hyu.oa.util.Util;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller("employeeController")
@@ -51,6 +52,7 @@ public class EmployeeController {
 
         //Get all the positions from the position enum
         modelMap.addAttribute("positionList", PositionEnum.getAllPosition());
+
         modelMap.addAttribute("errMsg", errMsg);
         return ("/WEB-INF/pages/employee_add.jsp");
     }
@@ -89,7 +91,15 @@ public class EmployeeController {
     }
 
     @GetMapping("/remove")
-    public String remove(String sn, ModelMap modelMap){
+    public String remove(String sn, HttpSession session, ModelMap modelMap){
+        Employee operator = (Employee) session.getAttribute("employee");
+        // The operator cannot delete himself or herself
+        if(sn.equals(operator.getSn())){
+            String errMsg = String.format("%s Can not delete yourSelf!!!", operator.getName());
+            modelMap.addAttribute("errMsg", errMsg);
+            return "displayAll";
+        }
+
         String exceptionMsg = employeeService.removeOne(sn);
         if(exceptionMsg != null){
             String errMsg = String.format("%s has Reimbursement Forms, can not delete it", sn);
@@ -100,10 +110,17 @@ public class EmployeeController {
     }
 
     @GetMapping("/removeMulti")
-    public String removeMulti(String sns, ModelMap modelMap){
-
+    public String removeMulti(String sns, HttpSession session, ModelMap modelMap){
         // get the list of the sn that the employee need to be removed
         List<String> snList = Util.stringToList(sns);
+
+        Employee operator = (Employee) session.getAttribute("employee");
+        // The operator cannot delete himself or herself
+        if(snList.contains(operator.getSn())){
+            String errMsg = String.format("%s Can not delete yourSelf!!!", operator.getName());
+            modelMap.addAttribute("errMsg", errMsg);
+            return "displayAll";
+        }
         String exceptionMsg = employeeService.removeMulti(snList);
         if(exceptionMsg != null){
             String errMsg = String.format("There are Reimbursement Forms belong to the [%s] employee, can not delete it", sns);

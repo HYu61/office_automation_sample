@@ -45,6 +45,18 @@
 <script type="text/javascript" src="/js/pages.js"></script>
 <script type="text/javascript" src="/js/items.js"></script>
 <script language="JavaScript">
+
+    //Only the HR can access the dept and employee CRUD panel
+    $(function () {
+        if(!"${sessionScope.employee.dept.name}".includes("HR")){
+            document.getElementById("HR").style.visibility = 'hidden'
+        }
+    })
+
+    /***
+     * Get all value of the selected elements
+     * @returns {string} all value of the selected elements
+     */
     function getSelect() {
         var id = document.getElementsByName('multi');
         var idList = new Array();
@@ -54,9 +66,7 @@
         }
         if(idList.length>0){
             return idList.toString();
-
         }
-
     }
 
 </script>

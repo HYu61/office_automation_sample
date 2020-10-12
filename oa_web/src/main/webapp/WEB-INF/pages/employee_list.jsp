@@ -1,3 +1,5 @@
+<%@ page import="pers.hyu.oa.global.infoenum.PositionEnum" %>
+<%@ page import="pers.hyu.oa.entity.Employee" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 

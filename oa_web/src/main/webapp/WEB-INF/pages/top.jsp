@@ -27,22 +27,22 @@
             <li class="dropdown menu-merge">
                 <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
                     <img src="/assets/img/avatars/5.jpg" alt="avatar" class="mw30 br64">
-                    <span class="hidden-xs pl15"> "employee name" </span>
+                    <span class="hidden-xs pl15"> "${sessionScope.employee.name}" </span>
                     <span class="caret caret-tp hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
                     <li class="list-group-item">
-                        <a href="/self" class="animated animated-short fadeInUp">
+                        <a href="/personalInfo" class="animated animated-short fadeInUp">
                             <span class="fa fa-user"></span> Profile
                             <span class="label label-warning"></span>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/to_change_password" class="animated animated-short fadeInUp">
+                        <a href="/toChangePassword" class="animated animated-short fadeInUp">
                             <span class="fa fa-gear"></span> Set Password </a>
                     </li>
                     <li class="dropdown-footer">
-                        <a href="/quit" class="">
+                        <a href="/logout" class="">
                             <span class="fa fa-power-off pr5"></span> Logout </a>
                     </li>
                 </ul>
@@ -58,9 +58,9 @@
                             <img src="assets/img/avatars/3.jpg" class="img-responsive">
                         </a>
                         <div class="media-body">
-                            <div class="media-author">"empName --- empPosition"</div>
+                            <div class="media-author">"${sessionScope.employee.name} --- ${sessionScope.employee.position}"</div>
                             <div class="media-links">
-                                <a href="/quit">Logout22</a>
+                                <a href="/logout">Logout</a>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,8 @@
                         <span class="sidebar-title">填写报销单</span>
                     </a>
                 </li>
-                <li class="sidebar-label pt15">基础信息管理</li>
+                <div id="HR">
+                <li class="sidebar-label pt15">Dept & EE Information</li>
                 <li>
                     <a class="accordion-toggle" href="#">
                         <span class="glyphicon glyphicon-check"></span>
@@ -106,12 +107,10 @@
                     </a>
                     <ul class="nav sub-nav">
                         <li>
-<%--                            --%>
                             <a href="/emp/displayAll">
                                 <span class="glyphicon glyphicon-calendar"></span> Employee List </a>
                         </li>
                         <li class="active">
-<%--                            --%>
                             <a href="/emp/toAdd">
                                 <span class="glyphicon glyphicon-check"></span> Add the Employee </a>
                         </li>
@@ -134,6 +133,7 @@
                         </li>
                     </ul>
                 </li>
+                </div>
             </ul>
             <div class="sidebar-toggle-mini">
                 <a href="#">

@@ -14,4 +14,15 @@
     <context:component-scan base-package="pers.hyu.oa.controller"/>
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
+
+    <mvc:interceptors>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/dept/**"/>
+            <mvc:mapping path="/emp/**"/>
+<!--            <mvc:exclude-mapping path="/toLogin"/>-->
+<!--            <mvc:exclude-mapping path="/login"/>-->
+            <bean id="loginInterceptor" class="pers.hyu.oa.global.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

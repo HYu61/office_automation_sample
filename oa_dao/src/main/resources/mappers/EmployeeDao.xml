@@ -30,6 +30,7 @@
         </foreach>
     </delete>
 
+
     <update id="update" parameterType="Employee">
         update employees
         set password = HEX(AES_ENCRYPT(#{password}, 'oa')),
@@ -41,14 +42,20 @@
     </update>
 
     <select id="selectBySn" parameterType="String" resultMap="empResultMap">
-        select * from employees where sn = #{value}
+        select sn, AES_DECRYPT(UNHEX(password), 'oa') as password, name, ca_sin, dept_id, position
+        from employees
+        where sn = #{value}
     </select>
 
     <select id="selectByDept" parameterType="Integer" resultMap="empResultMap">
-        select * from employees where dept_id = #{value}
+        select sn, AES_DECRYPT(UNHEX(password), 'oa') as password, name, ca_sin, dept_id, position
+        from employees
+        where dept_id = #{value}
     </select>
     <select id="selectAll" resultMap="empResultMap">
-        select * from employees order by dept_id
+        select sn, AES_DECRYPT(UNHEX(password), 'oa') as password, name, ca_sin, dept_id, position
+        from employees
+        order by dept_id
     </select>
 
 </mapper>
