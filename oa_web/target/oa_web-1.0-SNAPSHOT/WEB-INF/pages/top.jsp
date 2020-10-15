@@ -75,26 +75,26 @@
                 </div>
             </header>
             <ul class="nav sidebar-menu">
-                <li class="sidebar-label pt20">日常管理</li>
+                <li class="sidebar-label pt20">Reimbursement Form Management</li>
                 <li>
-                    <a href="/claim_voucher/deal">
+                    <a href="/form/displayPendingForms">
                         <span class="glyphicon glyphicon-book"></span>
-                        <span class="sidebar-title">待处理报销单</span>
+                        <span class="sidebar-title">Pending Forms</span>
                         <span class="sidebar-title-tray">
                 <span class="label label-xs bg-primary">New</span>
               </span>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="/claim_voucher/self">
+                    <a href="/form/displayPersonalForms">
                         <span class="glyphicon glyphicon-home"></span>
-                        <span class="sidebar-title">个人报销单</span>
+                        <span class="sidebar-title">Personal Forms</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/claim_voucher/to_add">
+                    <a href="/form/toAdd">
                         <span class="fa fa-calendar"></span>
-                        <span class="sidebar-title">填写报销单</span>
+                        <span class="sidebar-title">Create the Form</span>
                     </a>
                 </li>
                 <div id="HR">

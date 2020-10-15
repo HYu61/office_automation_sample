@@ -58,4 +58,10 @@
         order by dept_id
     </select>
 
+    <select id="selectBySnForRecord" parameterType="String" resultMap="empResultMap">
+        select sn, name, dept_id, position
+        from employees
+        where sn = #{value}
+    </select>
+
 </mapper>

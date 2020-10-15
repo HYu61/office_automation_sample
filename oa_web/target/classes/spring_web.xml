@@ -20,6 +20,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/dept/**"/>
             <mvc:mapping path="/emp/**"/>
+            <mvc:mapping path="/form/**"/>
 <!--            <mvc:exclude-mapping path="/toLogin"/>-->
 <!--            <mvc:exclude-mapping path="/login"/>-->
             <bean id="loginInterceptor" class="pers.hyu.oa.global.LoginInterceptor"/>

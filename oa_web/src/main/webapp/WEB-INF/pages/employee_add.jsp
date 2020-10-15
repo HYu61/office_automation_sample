@@ -9,8 +9,7 @@
         </div>
         <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
             <div class="panel heading-border">
-                <%--                @elvariable id="employee" type="pers.hyu.oa.entity.Employee"--%>
-                <%--@elvariable id="employee" type=""--%>
+                <%--@elvariable id="employee" type="pers.hyu.oa.entity.Employee"--%>
                 <form:form action="/emp/add" modelAttribute="employee" id="admin-form" name="addForm">
                 <div class="panel-body bg-light">
                     <div class="section-divider mt20 mb40">

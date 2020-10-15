@@ -20,5 +20,6 @@ public interface EmployeeDao {
     Employee selectBySn(String sn);
     List<Employee> selectByDept(int deptId);
     List<Employee> selectAll();
+    Employee selectBySnForRecord(String sn);
 
 }

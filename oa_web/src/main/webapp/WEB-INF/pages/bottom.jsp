@@ -43,7 +43,7 @@
 <script src="/assets/js/demo/demo.js"></script>
 <script src="/assets/js/main.js"></script>
 <script type="text/javascript" src="/js/pages.js"></script>
-<script type="text/javascript" src="/js/items.js"></script>
+<script type="text/javascript" src="/js/reimbursementFormDetailList.js"></script>
 <script language="JavaScript">
 
     //Only the HR can access the dept and employee CRUD panel

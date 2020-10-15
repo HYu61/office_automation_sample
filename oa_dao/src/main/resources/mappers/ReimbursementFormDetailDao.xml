@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.hyu.oa.dao.ReimbursementFormDetailDao">
+    <insert id="insert" parameterType="ReimbursementFormDetail" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into reimbursement_form_detail (reimbursement_form_id, cate_of_expense, amount, description)
+        values (#{reimbursementFormId}, #{cateOfExpense}, #{amount}, #{description})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        delete
+        from reimbursement_form_detail
+        where id = #{value}
+    </delete>
+
+    <delete id="deleteByReimbursementFromId" parameterType="Integer">
+        delete
+        from reimbursement_form_detail
+        where reimbursement_form_id = #{value}
+    </delete>
+
+    <update id="update" parameterType="ReimbursementFormDetail">
+        update reimbursement_form_detail
+        set reimbursement_form_id = #{reimbursementFormId},
+            cate_of_expense       = #{cateOfExpense},
+            amount                = #{amount},
+            description           = #{description}
+        where id = #{id}
+    </update>
+
+    <select id="selectByReimbursementForm" parameterType="Integer" resultType="ReimbursementFormDetail">
+        select *
+        from reimbursement_form_detail
+        where reimbursement_form_id = #{value}
+        order by amount DESC
+    </select>
+
+</mapper>

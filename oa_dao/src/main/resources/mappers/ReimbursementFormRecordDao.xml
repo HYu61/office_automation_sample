@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.hyu.oa.dao.ReimbursementFormRecordDao">
+
+    <resultMap id="recordResultMap" type="ReimbursementFormRecord">
+        <id column="id" property="id"/>
+        <result column="approver_sn" property="approverSn"/>
+        <association property="approver" select="pers.hyu.oa.dao.EmployeeDao.selectBySnForRecord" column="approver_sn"/>
+    </resultMap>
+    <insert id="insert" parameterType="ReimbursementFormRecord" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into reimbursement_form_records (reimbursement_form_id, approver_sn, handle_date, process_type, result, remark)
+        VALUES (#{reimbursementFormId}, #{approverSn}, #{handleDate}, #{processType}, #{result}, #{remark})
+    </insert>
+
+    <select id="selectByReimbursementForm" parameterType="Integer" resultMap="recordResultMap">
+        select *
+        from reimbursement_form_records
+        where reimbursement_form_id = #{value}
+        order by handle_date DESC
+    </select>
+</mapper>

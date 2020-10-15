@@ -2,7 +2,8 @@ package pers.hyu.oa.global.infoenum;
 
 public enum DisplayNumEnum {
     DEPT_PAGE(5),
-    EMP_PAGE(10);
+    EMP_PAGE(10),
+    FORM_PAGE(3);
 
     private final int displayNum;
 

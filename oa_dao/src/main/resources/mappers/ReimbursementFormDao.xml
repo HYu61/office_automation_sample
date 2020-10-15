@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.hyu.oa.dao.ReimbursementFormDao">
+    <resultMap id="formResultMap" type="ReimbursementForm">
+        <id column="id" property="id"/>
+        <result column="applicant_sn" property="applicantSn"/>
+        <result column="approver_sn" property="approverSn"/>
+
+        <association property="applicant" select="pers.hyu.oa.dao.EmployeeDao.selectBySnForRecord" column="applicant_sn"/>
+        <association property="approver" select="pers.hyu.oa.dao.EmployeeDao.selectBySnForRecord" column="approver_sn"/>
+
+        <collection property="reimbursementFormDetailList"
+                    select="pers.hyu.oa.dao.ReimbursementFormDetailDao.selectByReimbursementForm" column="id"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="ReimbursementForm" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        insert into reimbursement_forms (business_purpose, applicant_sn, create_time, approver_sn, total_amount, status)
+        VALUES (#{businessPurpose}, #{applicantSn}, #{createTime}, #{approverSn}, #{totalAmount}, #{status})
+    </insert>
+
+    <delete id="deleteById" parameterType="Integer">
+        delete
+        from reimbursement_forms
+        where id = #{value}
+    </delete>
+    <delete id="deleteMulti" parameterType="java.util.List">
+        delete from reimbursement_forms where id in
+        <foreach collection="list" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="ReimbursementForm">
+        update reimbursement_forms
+        set business_purpose = #{businessPurpose},
+            applicant_sn     = #{applicantSn},
+            create_time      = #{createTime},
+            approver_sn      = #{approverSn},
+            total_amount     = #{totalAmount},
+            status           = #{status}
+        where id = #{id}
+    </update>
+
+    <select id="selectById" parameterType="Integer" resultMap="formResultMap">
+        select * from reimbursement_forms where id = #{value}
+    </select>
+
+    <select id="selectByApplicant" parameterType="String" resultMap="formResultMap">
+        select * from reimbursement_forms where applicant_sn = #{value} order by create_time DESC
+    </select>
+
+    <select id="selectByApprover" parameterType="String" resultMap="formResultMap">
+        select * from reimbursement_forms where approver_sn = #{value} order by create_time DESC
+    </select>
+</mapper>
