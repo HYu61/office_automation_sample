@@ -71,6 +71,52 @@
         }
     }
 
+    function validateReimForm() {
+
+        const regex = /^\d+(?:\.?\d{0,2})$/;
+
+        if (document.getElementById("businessPurpose").value == "") {
+            alert("Business Purpose must be filled out");
+            return false;
+        }
+        if(!regex.test(document.getElementById("totalMoney").value)) {
+            alert('Please input the correct format for cost!');
+            return  false
+        }
+    }
+
+    function validateDeptForm() {
+        const regex = /^1\d{3}$/;
+        if(!regex.test(document.getElementById("id").value)){
+            alert("Id must be 4 digit and begin with 1")
+            return  false;
+        }
+        if (document.getElementById("name").value == "") {
+            alert("Name must be filled out");
+            return false;
+        }
+        if (document.getElementById("address").value == "") {
+            alert("Address must be filled out");
+            return false;
+        }
+    }
+
+    function validateEmpForm() {
+        const snRegex = /^((DM)|(GM)|(SF)|(AUD)|(GM_ASST))\d{4}$/;
+        const caSinRegex = /^9\d{8}$/;
+        if(!snRegex.test(document.getElementById("sn").value)){
+            alert("sn must be 4 digit and begin with the position")
+            return  false;
+        }
+        if (document.getElementById("name").value == "") {
+            alert("Name must be filled out");
+            return false;
+        }
+        if (!caSinRegex.test(document.getElementById("caSin").value)) {
+            alert("caSin must be 9 digits and start with 9");
+            return false;
+        }
+    }
 </script>
 </body>
 </html>

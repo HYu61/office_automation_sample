@@ -11,13 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/dept/addDept" method="post">
-    name: <input id="name" name="name">
-    address: <input id="address" name="address">
-    <input type="submit" value="tijiao">
 
-</form>
-
-<h1>${msg}</h1>
 </body>
 </html>
