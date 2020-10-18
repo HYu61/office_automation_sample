@@ -64,4 +64,13 @@
         where sn = #{value}
     </select>
 
+    <select id="selectByDeptAndPosition" resultMap="empResultMap">
+        select e.*
+        from employees as e left join departments d on e.dept_id = d.id
+        <where>
+        <if test="deptId != null">and e.dept_id = #{deptId}</if>
+        <if test="position != null">and e.position = #{position}</if>
+        </where>
+    </select>
+
 </mapper>

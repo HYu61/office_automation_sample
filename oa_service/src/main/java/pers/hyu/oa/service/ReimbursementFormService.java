@@ -1,7 +1,6 @@
 package pers.hyu.oa.service;
 
 import pers.hyu.oa.entity.ReimbursementForm;
-import pers.hyu.oa.entity.ReimbursementFormDetail;
 import pers.hyu.oa.entity.ReimbursementFormRecord;
 
 import java.util.List;
@@ -14,5 +13,9 @@ public interface ReimbursementFormService {
     List<ReimbursementFormRecord> getRecord(int id);
     List<ReimbursementForm> getByApplicant(String applicantSn);
     List<ReimbursementForm> getByApprover(String approverSn);
+
+    void edit(ReimbursementForm reimbursementForm);
+    void submit(int formId);
+    void audit(ReimbursementFormRecord record);
 
 }

@@ -2,11 +2,16 @@ package pers.hyu.oa.global.infoenum;
 
 import java.util.EnumSet;
 
+/**
+ * used for describe the employee's position
+ */
 public enum PositionEnum {
     SF("Staff"),
     AUD("Auditor"),
     DM("Department Manager"),
+    GM_ASST("General Manager Assistant"),
     GM("General Manager");
+
 
     private final String position;
 
@@ -21,4 +26,6 @@ public enum PositionEnum {
     public static EnumSet<PositionEnum> getAllPosition(){
         return EnumSet.allOf(PositionEnum.class);
     }
+
+
 }

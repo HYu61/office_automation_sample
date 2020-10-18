@@ -2,12 +2,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import pers.hyu.oa.dao.EmployeeDao;
 import pers.hyu.oa.entity.Department;
 import pers.hyu.oa.entity.Employee;
+import pers.hyu.oa.global.infoenum.PositionEnum;
 import pers.hyu.oa.service.DepartmentService;
 import pers.hyu.oa.service.EmployeeService;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Random;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring_service.xml")
@@ -15,17 +19,14 @@ public class TestService {
     @Resource(name = "departmentService")
     DepartmentService departmentService;
 
+    @Resource(name = "employeeDao")
+    EmployeeDao employeeDao;
+
     @Resource(name = "employeeService")
     EmployeeService employeeService;
 
 
-    @Test
-    public void testS(){
-        Department department = new Department();
-        department.setName("finace");
-        department.setAddress("a1");
-        departmentService.add(department);
-    }
+
 
     @Test
     public void testEmpAddAop(){

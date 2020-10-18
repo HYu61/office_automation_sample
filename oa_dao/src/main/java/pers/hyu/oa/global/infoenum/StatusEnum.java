@@ -1,9 +1,12 @@
 package pers.hyu.oa.global.infoenum;
 
+/**
+ * used for describe the state of the form
+ */
 public enum StatusEnum {
 
     CREATED("Created"),
-    SUBMIT("Submitted"),
+    SUBMITTED("Submitted"),
     APPROVED("Approved"),
     ROLLED_BACK("Rolled Back"),
     TERMINATED("Terminated"),

@@ -36,8 +36,6 @@
     <update id="update" parameterType="ReimbursementForm">
         update reimbursement_forms
         set business_purpose = #{businessPurpose},
-            applicant_sn     = #{applicantSn},
-            create_time      = #{createTime},
             approver_sn      = #{approverSn},
             total_amount     = #{totalAmount},
             status           = #{status}

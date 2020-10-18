@@ -78,7 +78,8 @@
                             <td>${emp.caSin}</td>
                             <td class="text-center fw600">${emp.dept.name}</td>
                             <td class="hidden-xs">
-                                <span class="badge badge-warning mr10 fs11">${emp.position}</span>
+                                <c:set var="post" value="${PositionEnum.valueOf(emp.position)}"/>
+                                <span class="badge badge-warning mr10 fs11">${post.position}</span>
                             </td>
                             <td>
                                 <a href="/emp/toEdit?sn=${emp.sn}">Edit</a>

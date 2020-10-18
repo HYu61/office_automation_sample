@@ -46,5 +46,4 @@ public class ReimbursementFormDetail {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }

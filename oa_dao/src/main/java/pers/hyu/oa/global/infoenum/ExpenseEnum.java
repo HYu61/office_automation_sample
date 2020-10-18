@@ -2,6 +2,9 @@ package pers.hyu.oa.global.infoenum;
 
 import java.util.EnumSet;
 
+/**
+ * Used for the cate of expense
+ */
 public enum ExpenseEnum {
     TRAFFIC("Traffic Expense"),
     MEAL("Meal Fee"),

@@ -1,11 +1,15 @@
 package pers.hyu.oa.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class ReimbursementFormRecord {
     private Integer id;
     private Integer reimbursementFormId;
     private String approverSn;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd : HH:mm:ss")
     private Date handleDate;
     private String processType;
     private String result;
