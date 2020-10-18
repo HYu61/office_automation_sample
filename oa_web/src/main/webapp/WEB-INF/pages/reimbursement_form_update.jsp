@@ -12,7 +12,7 @@
         </div>
         <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
             <div class="panel heading-border">
-                <form:form id="admin-form" name="addForm" action="/form/editForm" modelAttribute="reimbursementForm">
+                <form:form id="admin-form" name="addForm" action="/form/editForm" modelAttribute="reimbursementForm" onsubmit="return validateReimForm()">
                     <form:hidden path="id"/>
                     <div class="panel-body bg-light">
                         <div class="section-divider mt20 mb40">

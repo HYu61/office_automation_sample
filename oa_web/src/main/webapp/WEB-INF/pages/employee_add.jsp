@@ -10,7 +10,7 @@
         <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
             <div class="panel heading-border">
                 <%--@elvariable id="employee" type="pers.hyu.oa.entity.Employee"--%>
-                <form:form action="/emp/add" modelAttribute="employee" id="admin-form" name="addForm">
+                <form:form action="/emp/add" modelAttribute="employee" id="admin-form" name="addForm" onsubmit="return validateEmpForm()">
                 <div class="panel-body bg-light">
                     <div class="section-divider mt20 mb40">
                         <span> Employee Information </span>

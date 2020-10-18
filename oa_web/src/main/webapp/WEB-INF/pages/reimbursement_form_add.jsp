@@ -11,14 +11,14 @@
         </div>
         <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
             <div class="panel heading-border">
-                <form:form id="admin-form" name="addForm" action="/form/add" modelAttribute="reimbursementForm">
+                <form:form id="admin-form" name="addForm" action="/form/add" modelAttribute="reimbursementForm" onsubmit="return validateReimForm()">
                     <div class="panel-body bg-light">
                         <div class="section-divider mt20 mb40">
                             <span> Basic Info </span>
                         </div>
                         <div class="section">
                             <label for="businessPurpose" class="field prepend-icon">
-                                <form:input path="businessPurpose" cssClass="gui-input" placeholder="BusinessPurpose..."/>
+                                <form:input path="businessPurpose" cssClass="gui-input" placeholder="Business Purpose..."/>
                                 <label for="businessPurpose" class="field-icon">
                                     <i class="fa fa-lock"></i>
                                 </label>
